@@ -6,11 +6,8 @@ import Link from 'next/link';
 import { useGetAllCategoryQuery, useGetAllSectionQuery } from '../generated/graphql-types';
 
 export default function CahierLayout({ children }: { children: React.ReactNode }) {
-  const { data: categoryData, loading: categoryLoading, error: categoryError } = useGetAllCategoryQuery();
-  const { data: sectionData, loading: sectionLoading, error: sectionError } = useGetAllSectionQuery();
-
-  if (categoryLoading || sectionLoading) return <div>Loading...</div>;
-  if (categoryError || sectionError) return <div>Error loading data</div>;
+  const { data: categoryData } = useGetAllCategoryQuery();
+  const { data: sectionData } = useGetAllSectionQuery();
 
   const categories = categoryData?.categories || [];
   const sections = sectionData?.sections || [];

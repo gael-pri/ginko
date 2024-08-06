@@ -56,10 +56,20 @@ export type Section = {
   name?: Maybe<Scalars['String']['output']>;
 };
 
+export type GetAllArticleQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllArticleQuery = { __typename?: 'Query', articles?: Array<{ __typename?: 'Article', id_article?: string | null, title?: string | null, subtitle?: string | null, description?: string | null, chapterId?: string | null } | null> | null };
+
 export type GetAllCategoryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetAllCategoryQuery = { __typename?: 'Query', categories?: Array<{ __typename?: 'Category', id?: string | null, name?: string | null, description?: string | null } | null> | null };
+
+export type GetAllChapterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllChapterQuery = { __typename?: 'Query', chapters?: Array<{ __typename?: 'Chapter', id_chapter?: string | null, title?: string | null, description?: string | null, sectionId?: string | null } | null> | null };
 
 export type GetAllSectionQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -67,6 +77,49 @@ export type GetAllSectionQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetAllSectionQuery = { __typename?: 'Query', sections?: Array<{ __typename?: 'Section', id_section?: string | null, name?: string | null, categoryId?: string | null } | null> | null };
 
 
+export const GetAllArticleDocument = gql`
+    query GetAllArticle {
+  articles {
+    id_article
+    title
+    subtitle
+    description
+    chapterId
+  }
+}
+    `;
+
+/**
+ * __useGetAllArticleQuery__
+ *
+ * To run a query within a React component, call `useGetAllArticleQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllArticleQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllArticleQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAllArticleQuery(baseOptions?: Apollo.QueryHookOptions<GetAllArticleQuery, GetAllArticleQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllArticleQuery, GetAllArticleQueryVariables>(GetAllArticleDocument, options);
+      }
+export function useGetAllArticleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllArticleQuery, GetAllArticleQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllArticleQuery, GetAllArticleQueryVariables>(GetAllArticleDocument, options);
+        }
+export function useGetAllArticleSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetAllArticleQuery, GetAllArticleQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetAllArticleQuery, GetAllArticleQueryVariables>(GetAllArticleDocument, options);
+        }
+export type GetAllArticleQueryHookResult = ReturnType<typeof useGetAllArticleQuery>;
+export type GetAllArticleLazyQueryHookResult = ReturnType<typeof useGetAllArticleLazyQuery>;
+export type GetAllArticleSuspenseQueryHookResult = ReturnType<typeof useGetAllArticleSuspenseQuery>;
+export type GetAllArticleQueryResult = Apollo.QueryResult<GetAllArticleQuery, GetAllArticleQueryVariables>;
 export const GetAllCategoryDocument = gql`
     query GetAllCategory {
   categories {
@@ -108,6 +161,48 @@ export type GetAllCategoryQueryHookResult = ReturnType<typeof useGetAllCategoryQ
 export type GetAllCategoryLazyQueryHookResult = ReturnType<typeof useGetAllCategoryLazyQuery>;
 export type GetAllCategorySuspenseQueryHookResult = ReturnType<typeof useGetAllCategorySuspenseQuery>;
 export type GetAllCategoryQueryResult = Apollo.QueryResult<GetAllCategoryQuery, GetAllCategoryQueryVariables>;
+export const GetAllChapterDocument = gql`
+    query GetAllChapter {
+  chapters {
+    id_chapter
+    title
+    description
+    sectionId
+  }
+}
+    `;
+
+/**
+ * __useGetAllChapterQuery__
+ *
+ * To run a query within a React component, call `useGetAllChapterQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllChapterQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllChapterQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAllChapterQuery(baseOptions?: Apollo.QueryHookOptions<GetAllChapterQuery, GetAllChapterQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllChapterQuery, GetAllChapterQueryVariables>(GetAllChapterDocument, options);
+      }
+export function useGetAllChapterLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllChapterQuery, GetAllChapterQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllChapterQuery, GetAllChapterQueryVariables>(GetAllChapterDocument, options);
+        }
+export function useGetAllChapterSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetAllChapterQuery, GetAllChapterQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetAllChapterQuery, GetAllChapterQueryVariables>(GetAllChapterDocument, options);
+        }
+export type GetAllChapterQueryHookResult = ReturnType<typeof useGetAllChapterQuery>;
+export type GetAllChapterLazyQueryHookResult = ReturnType<typeof useGetAllChapterLazyQuery>;
+export type GetAllChapterSuspenseQueryHookResult = ReturnType<typeof useGetAllChapterSuspenseQuery>;
+export type GetAllChapterQueryResult = Apollo.QueryResult<GetAllChapterQuery, GetAllChapterQueryVariables>;
 export const GetAllSectionDocument = gql`
     query GetAllSection {
   sections {
