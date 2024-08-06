@@ -1,0 +1,34 @@
+services:
+    server:
+        build: ./backend
+        ports: 
+            - 4000:4000
+        command: npm run start
+        volumes: 
+            - ./backend:/app
+    client:
+        build: ./frontend
+        ports: 
+            - 3000:3000
+        command: npm run dev
+        volumes: 
+            - ./frontend:/app
+        environment:
+            THEGOODCORNER_DBPASS: exemple
+
+    db:
+        image: postgres:16
+        restart: unless-stopped
+        shm_size: 128mb
+        environment:
+            POSTGRES_PASSWORD: exemple
+        ports:
+            - 5432:5432
+        volumes:
+            - ./data:/var/lib/postgresql/data
+            
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+        - 8080:8080

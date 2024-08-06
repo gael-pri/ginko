@@ -1,0 +1,36 @@
+services:
+    server:
+        build: ./backend
+        ports: 
+            - 4000:4000
+        command: npm run start
+        volumes: 
+            - ./backend:/app
+    client:
+        build: ./frontend
+        ports: 
+            - 80:3000
+        command: npm run dev
+        volumes: 
+            - ./frontend:/app
+        env_file: "ginko.env"
+        environment:
+            GINKO_DBPASS: GINKO_DBPASS
+
+    db:
+        image: postgres:16
+        restart: unless-stopped
+        shm_size: 128mb
+        env_file: "ginko.env"
+        environment:
+            POSTGRES_PASSWORD: POSTGRES_PASSWORD
+        ports:
+            - 5432:5432
+        volumes:
+            - ../ginko-data:/var/lib/postgresql/data
+            
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+        - 8080:8080

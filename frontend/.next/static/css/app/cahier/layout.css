@@ -1,0 +1,34 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/cahier/cahier.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.cahier_section__vBU5m {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 24px 0;
+    height: 70vh;
+    width: 100%;
+}
+
+.cahier_menu__d_t_e {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.cahier_page__8wIqy {
+    display: flex;
+    flex: 3 0 auto
+}
+
+.cahier_categoryMenu__p7HMS.cahier_ul__tZfdm {
+    padding-left: 48px;
+}
+.cahier_categoryMenu__p7HMS {
+    padding: 10px 0px 10px 24px;
+    font-weight: 600;
+}
+.cahier_sectionMenu__PkR0X {
+    padding-left: 24px;
+    padding: 2px 0px;
+    font-weight: 400;
+}
